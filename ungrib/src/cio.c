@@ -49,7 +49,7 @@
 
 /* ****************************************************************** */
 
-c_open(unit, nunit, name, mode, err, oflag)
+int c_open(unit, nunit, name, mode, err, oflag)
  /*
   * unit  = Fortran unit number 
   * nunit = UNIX file descriptor associated with 'unit'
@@ -114,7 +114,7 @@ c_open(unit, nunit, name, mode, err, oflag)
 }
 
 /* ****************************************************************** */
-bn_seek(fd, bread, mode, iprint)
+int bn_seek(fd, bread, mode, iprint)
 
 /*  Move the read/write file pointer
        fd     : Unix file descriptor.
@@ -152,7 +152,7 @@ bn_seek(fd, bread, mode, iprint)
 
 /* ****************************************************************** */
 
-bn_read(fd, buf, nbuf, bread, ios, idiag)
+int bn_read(fd, buf, nbuf, bread, ios, idiag)
  /*
   * fd = UNIX file descriptor number (NOT a Fortran unit) 
   * buf = area into which to read 
@@ -198,7 +198,7 @@ bn_read(fd, buf, nbuf, bread, ios, idiag)
 
 /* ****************************************************************** */
 
-bnwrit_(fd, buf, nbuf, bwritten, err, idiag)
+int bnwrit_(fd, buf, nbuf, bwritten, err, idiag)
     int            *fd, *nbuf, buf[], *bwritten, *err, *idiag;
 
  /*
@@ -232,7 +232,7 @@ bnwrit_(fd, buf, nbuf, bwritten, err, idiag)
 
 /* ****************************************************************** */
 
-c_close(nunit, iprint, err)
+int c_close(nunit, iprint, err)
 /*
 Close a C (UNIX?) file descriptor:
   nunit  : (INPUT)  : The C (UNIX?) file descriptor to close.
